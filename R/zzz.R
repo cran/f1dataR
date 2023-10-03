@@ -1,5 +1,6 @@
 # nocov start
 .onLoad <- function(libname, pkgname) {
+  reticulate::use_virtualenv("f1dataR_env", required = FALSE)
   reticulate::configure_environment(pkgname)
   # Based on how nflreadr handles caching. Thanks to Tan (github @tanho63) for the suggestions
 
@@ -102,7 +103,7 @@
 
 .onAttach <- function(libname, pkgname) {
   # default to memory cache if not set
-  memoise_option <- getOption("f1dataR.cache")
+  memoise_option <- getOption("f1dataR.cache", default = "memory")
 
   if (is.null(memoise_option)) {
     memoise_option <- "memory"
@@ -120,10 +121,12 @@
   }
 
   if (memoise_option != "off") {
-    packageStartupMessage(
-      "Note: f1dataR will cache for up to 24 hours, \n",
-      "or until the end of the R session."
-    )
+    if (interactive()) {
+      packageStartupMessage(
+        "Note: f1dataR will cache for up to 24 hours, \n",
+        "or until the end of the R session."
+      )
+    }
   } else {
     packageStartupMessage(
       "Note: f1dataR.cache is set to 'off' \n",
