@@ -18,19 +18,19 @@ test_that("driver telemetry", {
 
   expect_true(nrow(telem) > nrow(telem_fast))
   expect_true(ncol(telem) == ncol(telem_fast))
-  if (get_fastf1_version() >= 3) {
+  if (get_fastf1_version()$major >= 3) {
     expect_equal(telem_fast$session_time[[1]], 3518.641)
     expect_equal(telem_fast$time[[2]], 0.086)
-  } else {
-    # v3 updated some telemetry calculations, so this handles v2 until it's retired
-    expect_equal(telem_fast$session_time[[1]], 3518.595)
-    expect_equal(telem_fast$time[[2]], 0.044)
-    expect_error(
-      load_driver_telemetry(season = 2022, round = "Brazil", session = "S", driver = "HAM", laps = 1),
-      "can only be a lap number if using fastf1 v3.0 or higher"
-    )
-  }
-  if (get_fastf1_version() >= 3) {
+  } # else {
+  # v3 updated some telemetry calculations, so this handles v2 until it's retired
+  #   expect_equal(telem_fast$session_time[[1]], 3518.595)
+  #   expect_equal(telem_fast$time[[2]], 0.044)
+  #   expect_error(
+  #     load_driver_telemetry(season = 2022, round = "Brazil", session = "S", driver = "HAM", laps = 1),
+  #     "can only be a lap number if using fastf1 v3.0 or higher"
+  #   )
+  # }
+  if (get_fastf1_version()$major >= 3) {
     telem_lap <- load_driver_telemetry(season = 2022, round = "Brazil", session = "S", driver = "HAM", laps = 1)
     expect_equal(telem_lap$time[[1]], 0)
     expect_equal(telem_lap$speed[[1]], 0)
@@ -55,8 +55,8 @@ test_that("driver telemetry", {
     "`get_driver_telemetry\\(\\)` was deprecated in f1dataR 1.4.0 and is now defunct.*"
   )
 
-    expect_error(
-      get_driver_telemetry(season = 2022, race = "Brazil", session = "S", driver = "HAM", fastest_only = TRUE),
-      "`get_driver_telemetry\\(\\)` was deprecated in f1dataR 1.4.0 and is now defunct.*"
-    )
+  expect_error(
+    get_driver_telemetry(season = 2022, race = "Brazil", session = "S", driver = "HAM", fastest_only = TRUE),
+    "`get_driver_telemetry\\(\\)` was deprecated in f1dataR 1.4.0 and is now defunct.*"
+  )
 })
