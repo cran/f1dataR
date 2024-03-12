@@ -1,6 +1,6 @@
 Package: f1dataR
 Title: Access Formula 1 Data
-Version: 1.5.0
+Version: 1.5.1
 Authors@R: c(
     person("Santiago", "Casanova", , "santiago.casanova@yahoo.com", role = c("aut", "cre", "cph")),
     person("Philip", "Bulsink", , "bulsinkp@gmail.com", role = "aut",
@@ -16,17 +16,17 @@ RoxygenNote: 7.2.3
 Depends: R (>= 2.10), reticulate (>= 1.14),
 Imports: glue, magrittr, tibble, jsonlite, httr2, memoise, janitor,
         dplyr, tidyr, rlang, lifecycle, cli, rappdirs, cachem, withr
-Suggests: ggplot2, httptest, knitr, rmarkdown, testthat (>= 3.0.0),
+Suggests: ggplot2, httptest2, knitr, rmarkdown, testthat (>= 3.0.0),
         usethis
 VignetteBuilder: knitr
 URL: https://scasanova.github.io/f1dataR/,
-        https://github.com/scasanova/f1dataR/
-BugReports: https://github.com/scasanova/f1dataR/issues
+        https://github.com/SCasanova/f1dataR
+BugReports: https://github.com/SCasanova/f1dataR/issues
 Config/testthat/edition: 3
 NeedsCompilation: no
-Packaged: 2024-01-25 00:47:39 UTC; santiagocasanova
+Packaged: 2024-03-12 02:34:22 UTC; santiagocasanova
 Author: Santiago Casanova [aut, cre, cph],
   Philip Bulsink [aut] (<https://orcid.org/0000-0001-9668-2429>)
 Maintainer: Santiago Casanova <santiago.casanova@yahoo.com>
 Repository: CRAN
-Date/Publication: 2024-01-25 01:10:08 UTC
+Date/Publication: 2024-03-12 04:50:02 UTC

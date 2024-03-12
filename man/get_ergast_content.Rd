@@ -8,16 +8,21 @@ get_ergast_content(url)
 }
 \arguments{
 \item{url}{the Ergast URL tail to get from the API (for example,
-\code{"current.json?limit=30"} is called from \code{get_current_season()}).}
+\code{"{season}/circuits.json?limit=40"} is called from \code{load_circuits()}).}
 }
 \value{
-the result of \code{jsonlite::fromJSON} called on ergast's return content.
+the result of \code{jsonlite::fromJSON} called on Ergast's return content.
 Further processing is performed by specific functions
 }
 \description{
-Gets ergast content and returns the processed json object if
+Gets Ergast content and returns the processed json object if
 no Ergast errors are found. This will automatically fall back from https://
-to http:// if ergast suffers errors, and will automatically retry up to 5
+to http:// if Ergast suffers errors, and will automatically retry up to 5
 times by each protocol
+
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
+
+Note the Ergast Motor Racing Database API will shut down at the end of 2024.
+This function willbe replaced with a new data-source when one is made available.
 }
 \keyword{internal}

@@ -21,7 +21,7 @@ the Python package [`FastF1`](https://docs.fastf1.dev/). This guide may help res
 that might arise when you get the following warning or error messages:
 
 - `Ensure fastf1 python package is installed. Please run this to install the most recent version: setup_fastf1()`
-- `Error in if (get_fastf1_version()$major < 3) { :` 
+- `Error in if (get_fastf1_version() < '3.1') { :` 
    `missing value where TRUE/FALSE needed`
 
 If these happen to you (particularly if you're a new user of `f1dataR`) read on!
@@ -30,7 +30,7 @@ If these happen to you (particularly if you're a new user of `f1dataR`) read on!
 
 At the core of the `f1dataR` package, the connection to the Python package is created
 by using [`reticulate`](https://rstudio.github.io/reticulate/). This provides the 
-connectionused to call on Python and return objects to R. However, it has to be 
+connection used to call on Python and return objects to R. However, it has to be 
 set up properly to work.
 
 > **_NOTE:_**  If you are comfortable with `reticulate`, set up a virtualenv or 
@@ -55,6 +55,7 @@ This will create a virtual environment using your system's default Python versio
 and install `fastf1` in that python environment. It will also tell `reticulate` to use that
 environment instead of just running in your main system. For more information on Python 
 environments read [this article (infoworld.com)](https://www.infoworld.com/article/3239675/virtualenv-and-venv-python-virtual-environments-explained.html). 
+
 # Repeat/Recurring Issues
 
 If you have repeat issues with the package failing to connect to your proper environment, 

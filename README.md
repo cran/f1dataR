@@ -2,7 +2,7 @@
 # f1dataR <img src='man/figures/logo.png' align="right" width="25%" min-width="120px"/>
 
 An R package to access Formula 1 Data from the Ergast API and the
-official F1 data stream via the fastf1 Python library.
+official F1 data stream via the FastF1 Python library.
 
 <!-- badges: start -->
 
@@ -42,6 +42,10 @@ Data is pulled from:
 - [F1 Data Stream](https://www.formula1.com/en/f1-live.html) via the
   [Fast F1 python library](https://docs.fastf1.dev/index.html)
 
+Note the Ergast Motor Racing Database API will be shutting down at the
+end of 2024. When a new data source is identified the package will be
+migrated to that source.
+
 ## Functions
 
 ### Load Lap Times
@@ -56,20 +60,20 @@ season and last race. Lap data is limited to 1996-present.
 
 ``` r
 load_laps()
-#> # A tibble: 815 × 6
+#> # A tibble: 900 × 6
 #>    driver_id      position time       lap time_sec season
 #>    <chr>          <chr>    <chr>    <int>    <dbl>  <dbl>
-#>  1 perez          1        1:53.295     1     113.   2023
-#>  2 leclerc        2        1:54.584     1     115.   2023
-#>  3 hamilton       3        1:55.210     1     115.   2023
-#>  4 max_verstappen 4        1:55.659     1     116.   2023
-#>  5 sainz          5        1:57.901     1     118.   2023
-#>  6 alonso         6        1:58.270     1     118.   2023
-#>  7 norris         7        1:58.832     1     119.   2023
-#>  8 tsunoda        8        1:59.555     1     120.   2023
-#>  9 stroll         9        2:00.096     1     120.   2023
-#> 10 albon          10       2:00.359     1     120.   2023
-#> # ℹ 805 more rows
+#>  1 max_verstappen 1        1:35.505     1     95.5   2024
+#>  2 leclerc        2        1:36.681     1     96.7   2024
+#>  3 perez          3        1:37.222     1     97.2   2024
+#>  4 alonso         4        1:38.507     1     98.5   2024
+#>  5 piastri        5        1:38.705     1     98.7   2024
+#>  6 norris         6        1:39.926     1     99.9   2024
+#>  7 russell        7        1:40.459     1    100.    2024
+#>  8 hamilton       8        1:40.900     1    101.    2024
+#>  9 stroll         9        1:42.429     1    102.    2024
+#> 10 tsunoda        10       1:42.531     1    103.    2024
+#> # ℹ 890 more rows
 ```
 
 or
@@ -155,22 +159,31 @@ load_session_laps(season = 2023, round = 4, add_weather = TRUE)
 #> # A tibble: 962 × 39
 #>     time driver driver_number lap_time lap_number stint pit_out_time pit_in_time
 #>    <dbl> <chr>  <chr>            <dbl>      <dbl> <dbl>        <dbl>       <dbl>
-#>  1 3892. VER    1                 110.          1     1         697.        NaN 
-#>  2 4000. VER    1                 108.          2     1         NaN         NaN 
-#>  3 4108. VER    1                 108.          3     1         NaN         NaN 
-#>  4 4215. VER    1                 107.          4     1         NaN         NaN 
-#>  5 4322. VER    1                 107.          5     1         NaN         NaN 
-#>  6 4430. VER    1                 107.          6     1         NaN         NaN 
-#>  7 4537. VER    1                 107.          7     1         NaN         NaN 
-#>  8 4643. VER    1                 107.          8     1         NaN         NaN 
-#>  9 4750. VER    1                 107.          9     1         NaN         NaN 
-#> 10 4861. VER    1                 111.         10     1         NaN        4860.
+#>  1 3892. VER    1                 110.          1     1          NaN        NaN 
+#>  2 4000. VER    1                 108.          2     1          NaN        NaN 
+#>  3 4108. VER    1                 108.          3     1          NaN        NaN 
+#>  4 4215. VER    1                 107.          4     1          NaN        NaN 
+#>  5 4322. VER    1                 107.          5     1          NaN        NaN 
+#>  6 4430. VER    1                 107.          6     1          NaN        NaN 
+#>  7 4537. VER    1                 107.          7     1          NaN        NaN 
+#>  8 4643. VER    1                 107.          8     1          NaN        NaN 
+#>  9 4750. VER    1                 107.          9     1          NaN        NaN 
+#> 10 4861. VER    1                 111.         10     1          NaN       4860.
 #> # ℹ 952 more rows
 #> # ℹ 31 more variables: sector1time <dbl>, sector2time <dbl>, sector3time <dbl>,
 #> #   sector1session_time <dbl>, sector2session_time <dbl>,
 #> #   sector3session_time <dbl>, speed_i1 <dbl>, speed_i2 <dbl>, speed_fl <dbl>,
 #> #   speed_st <dbl>, …
 ```
+
+### Circuit Data
+
+> `load_circuit_details(2023, 4)`
+
+This function loads circuit details for a specific race session. Note
+that different track layouts are used at some circuits depending on the
+year of the race. Useful for visualizing or annotating data. Contains
+information on corners, marshal_lights and marshal_sectors.
 
 ### Plotting
 
@@ -213,7 +226,7 @@ total number of races in a season).
 - `load_pitstops(season = "current", round = "last")`
 - `load_quali(season = "current", round = "last")`
 - `load_results(season = "current", round = "last")`
-- `load_schedule(season =`2023`)`
+- `load_schedule(season =`2024`)`
 - `load_sprint(season = "current", round = "last")`
 - `load_standings(season = "current", round = "last", type = c("driver", "constructor"))`
 
@@ -225,9 +238,8 @@ Clears the cache for all functions in the package.
 
 ## Loaded Data
 
-The package also includes a static data frame for all current drivers
-and their respective constructors. Complete with team colors, and links
-to team logos.
+The package also includes a static data frame for all current
+Constructors. Complete with team colors, and links to team logos.
 
 ``` r
 constructor_data %>% colnames()

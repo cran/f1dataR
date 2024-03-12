@@ -348,7 +348,7 @@ help resolve some issues that might arise when you get the following
 warning or error messages:</p>
 <ul>
 <li><code>Ensure fastf1 python package is installed. Please run this to install the most recent version: setup_fastf1()</code></li>
-<li><code>Error in if (get_fastf1_version()$major &lt; 3) { :</code>
+<li><code>Error in if (get_fastf1_version() &lt; &#39;3.1&#39;) { :</code>
 <code>missing value where TRUE/FALSE needed</code></li>
 </ul>
 <p>If these happen to you (particularly if you’re a new user of
@@ -358,8 +358,8 @@ warning or error messages:</p>
 <h1><code>f1dataR</code>’s Relationship to Python</h1>
 <p>At the core of the <code>f1dataR</code> package, the connection to
 the Python package is created by using <a href="https://rstudio.github.io/reticulate/"><code>reticulate</code></a>.
-This provides the connectionused to call on Python and return objects to
-R. However, it has to be set up properly to work.</p>
+This provides the connection used to call on Python and return objects
+to R. However, it has to be set up properly to work.</p>
 <blockquote>
 <p><strong><em>NOTE:</em></strong> If you are comfortable with
 <code>reticulate</code>, set up a virtualenv or condaenv and point
@@ -382,7 +382,11 @@ Python version, and install <code>fastf1</code> in that python
 environment. It will also tell <code>reticulate</code> to use that
 environment instead of just running in your main system. For more
 information on Python environments read <a href="https://www.infoworld.com/article/3239675/virtualenv-and-venv-python-virtual-environments-explained.html">this
-article (infoworld.com)</a>. # Repeat/Recurring Issues</p>
+article (infoworld.com)</a>.</p>
+</div>
+</div>
+<div id="repeatrecurring-issues" class="section level1">
+<h1>Repeat/Recurring Issues</h1>
 <p>If you have repeat issues with the package failing to connect to your
 proper environment, you can force a complete recreation of the virtual
 environment by calling:</p>
@@ -390,7 +394,6 @@ environment by calling:</p>
 <p>If you’ve configured the package to use a custom environment name,
 the above function will require that name supplied as the
 <code>envname</code> parameter.</p>
-</div>
 </div>
 
 
