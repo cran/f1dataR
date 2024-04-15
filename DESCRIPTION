@@ -1,6 +1,6 @@
 Package: f1dataR
 Title: Access Formula 1 Data
-Version: 1.5.1
+Version: 1.5.2
 Authors@R: c(
     person("Santiago", "Casanova", , "santiago.casanova@yahoo.com", role = c("aut", "cre", "cph")),
     person("Philip", "Bulsink", , "bulsinkp@gmail.com", role = "aut",
@@ -24,9 +24,9 @@ URL: https://scasanova.github.io/f1dataR/,
 BugReports: https://github.com/SCasanova/f1dataR/issues
 Config/testthat/edition: 3
 NeedsCompilation: no
-Packaged: 2024-03-12 02:34:22 UTC; santiagocasanova
+Packaged: 2024-04-15 19:09:25 UTC; santiagocasanova
 Author: Santiago Casanova [aut, cre, cph],
   Philip Bulsink [aut] (<https://orcid.org/0000-0001-9668-2429>)
 Maintainer: Santiago Casanova <santiago.casanova@yahoo.com>
 Repository: CRAN
-Date/Publication: 2024-03-12 04:50:02 UTC
+Date/Publication: 2024-04-15 19:30:02 UTC
