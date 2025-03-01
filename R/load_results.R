@@ -18,7 +18,7 @@ load_results <- function(season = get_current_season(), round = "last") {
   url <- glue::glue("{season}/{round}/results.json?limit=40",
     season = season, round = round
   )
-  data <- get_ergast_content(url)
+  data <- get_jolpica_content(url)
 
   if (is.null(data)) {
     return(NULL)
@@ -37,7 +37,8 @@ load_results <- function(season = get_current_season(), round = "last") {
       dplyr::mutate(
         fastest_rank = NA_integer_,
         fastest = NA_character_,
-        top_speed_kpt = NA_real_
+        top_speed_kph = NA_real_,
+        time_sec = NA_real_
       ) %>%
       tibble::as_tibble() %>%
       janitor::clean_names()

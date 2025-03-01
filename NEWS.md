@@ -1,7 +1,15 @@
-# f1dataR 1.6.0
+# f1dataR 2.0.0
 
 
 # f1dataR 1.6.0.9000
+
+* Deprecated Ergast and moved to Jolpica API for Ergast Functions. While this is not a breaking change in the code syntax, the documentation changes significantly to reflect this and a new major version is appropriate. (#268)
+* Bugfix in plot_fastest().
+* Bugfix in load_results() with pagination - Thanks to @awanderingspirit. (#272)
+* Bugfix in README. (#267)
+
+# f1dataR 1.6.0
+
 * Updates per FastF1 (python) updates at 3.4.0 #259
     * Soft deprecates FastF1 v < 3.4.0, hard deprecates FastF1 v < 3.1.0.
     * Added functions to get driver graphic style & team colors from FastF1. See `get_driver_style()`, `get_driver_color()`, `get_team_color()` and `get_driver_color_map()` (and the aliases with `colour`). 
